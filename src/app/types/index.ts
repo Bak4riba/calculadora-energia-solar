@@ -2,7 +2,6 @@ export interface SimulationInput {
   consumoMensalKwh: number;
   valorContaMensal: number;
   cidade: string;
-  irradiacaoSolar: number; // kWh/m²/dia
 }
 
 export interface SimulationResult {
