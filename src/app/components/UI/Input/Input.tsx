@@ -33,6 +33,16 @@ export default function Input({
   step,
   helperText
 }: InputProps) {
+  
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (type === 'number') {
+      // Bloqueia caracteres não numéricos: 'e', 'E', '+', '-'
+      if (['e', 'E', '+', '-'].includes(e.key)) {
+        e.preventDefault();
+      }
+    }
+  };
+
   return (
     <div>
       <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-2">
@@ -46,15 +56,19 @@ export default function Input({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
+        onKeyDown={handleKeyDown}
         placeholder={placeholder}
         min={min}
         max={max}
         step={step}
-        className={`w-full p-3 border rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors hover:ring-green-500 ${
-          error 
+        className={`
+          w-full p-3 border rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors
+          [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
+          ${error 
             ? 'border-red-500 bg-red-50' 
-            : 'border-gray-300 hover:border-green-900'
-        }`}
+            : 'border-gray-300 hover:border-gray-400'
+          }
+        `}
         required={required}
       />
       {error && (

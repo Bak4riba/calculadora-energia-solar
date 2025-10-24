@@ -13,9 +13,9 @@ interface CalculatorFormProps {
 
 export default function CalculatorForm({ onCalculate, loading }: CalculatorFormProps) {
   const [formData, setFormData] = useState({
-    consumoMensalKwh: "300",
-    valorContaMensal: "350",
-    cidade: 'sao-paulo'
+    consumoMensalKwh: "Consumo Mensal (kWh)",
+    valorContaMensal: "Valor da Conta de Luz (R$)*",
+    cidade: 'Seleciona a Cidade'
   });
 
   const [errors, setErrors] = useState({
@@ -79,8 +79,8 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
     }));
 
     // Se o valor for o default, limpa o input
-    if ((name === 'consumoMensalKwh' && formData.consumoMensalKwh === "300") ||
-        (name === 'valorContaMensal' && formData.valorContaMensal === "350")) {
+    if ((name === 'consumoMensalKwh' && formData.consumoMensalKwh === "0") ||
+        (name === 'valorContaMensal' && formData.valorContaMensal === "0")) {
       setFormData(prev => ({
         ...prev,
         [name]: ""
@@ -101,15 +101,15 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
     if (value === "") {
       setFormData(prev => ({
         ...prev,
-        [name]: name === 'consumoMensalKwh' ? "300" : "350"
+        [name]: name === 'consumoMensalKwh' ? "0" : "0"
       }));
     }
   };
 
   // Função para determinar o placeholder
   const getPlaceholder = (fieldName: string) => {
-    if (fieldName === 'consumoMensalKwh') return "300";
-    if (fieldName === 'valorContaMensal') return "350";
+    if (fieldName === 'consumoMensalKwh') return "0";
+    if (fieldName === 'valorContaMensal') return "0";
     return "";
   };
 
@@ -166,6 +166,13 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 error={errors.consumoMensalKwh}
+                  className={`w-full p-3 border rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors 
+                    /* ADICIONE ESTAS 3 LINhas: */
+                    [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
+                    ${errors 
+                      ? 'border-red-500 bg-red-50' 
+                      : 'border-gray-300 hover:border-gray-400'
+                    }`}
                 required
                 min={1}
                 max={2000}
