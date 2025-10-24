@@ -166,8 +166,7 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 error={errors.consumoMensalKwh}
-                  className={`w-full p-3 border rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors 
-                    /* ADICIONE ESTAS 3 LINhas: */
+                className={`w-full p-3 border rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors 
                     [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
                     ${errors 
                       ? 'border-red-500 bg-red-50' 
@@ -222,4 +221,18 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
       </div>
     </form>
   );
+}
+
+interface InputProps {
+  label: string;
+  type: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
+  required?: boolean;
+  min?: number;
+  max?: number;
+  helperText?: string;
+  className?: string;
 }
