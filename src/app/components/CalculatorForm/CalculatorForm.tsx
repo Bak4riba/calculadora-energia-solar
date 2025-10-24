@@ -53,21 +53,23 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-
-    if (errors[name as keyof typeof errors]) {
-      setErrors(prev => ({
+  /* Handler genérico para inputs */
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
         ...prev,
-        [name]: ""
+        [name]: value
       }));
-    }
-  };
+    };
+
+    // Handler específico para select
+    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
 
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     const { name } = e.target;
@@ -142,7 +144,7 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
                 type="number"
                 name="consumoMensalKwh"
                 value={getDisplayValue('consumoMensalKwh')}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 error={errors.consumoMensalKwh}
@@ -162,7 +164,7 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
                 type="number"
                 name="valorContaMensal"
                 value={getDisplayValue('valorContaMensal')}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 error={errors.consumoMensalKwh}
@@ -192,7 +194,7 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
             id="cidade"
             name="cidade"
             value={formData.cidade}
-            onChange={handleChange}
+            onChange={handleSelectChange}
             className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none bg-white cursor-pointer text-gray-900"
         >
     {cidades.map((cidade) => (
@@ -223,16 +225,3 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
   );
 }
 
-interface InputProps {
-  label: string;
-  type: string;
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: string;
-  required?: boolean;
-  min?: number;
-  max?: number;
-  helperText?: string;
-  className?: string;
-}

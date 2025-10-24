@@ -15,6 +15,7 @@ interface InputProps {
   max?: number;
   step?: number;
   helperText?: string;
+  className?: string;
 }
 
 export default function Input({
@@ -41,6 +42,7 @@ export default function Input({
         e.preventDefault();
       }
     }
+    
   };
 
   return (
@@ -80,3 +82,4 @@ export default function Input({
     </div>
   );
 }
+
