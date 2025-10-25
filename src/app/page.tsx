@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { SimulationInput, SimulationResult } from './types';
 import { calcularSistema } from './lib/calculations';
 import CalculatorForm from './components/CalculatorForm';
-import ResultsDisplay from './components/ResultDisplay';
+import ResultsDisplay from './components/ResultDisplay/ResultDisplay';
+import ThemeToggle from './components/ThemeToggle/ThemeToggle';
 
 export default function Home() {
   const [results, setResults] = useState<SimulationResult | null>(null);
@@ -30,13 +31,16 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-green-50 to-blue-50 py-8 px-4 sm:py-12">
+    <div className="min-h-screen bg-linear-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 py-8 px-4 sm:py-12">
       <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+        <header className="text-center mb-8 sm:mb-12 relative">
+          <div className="absolute top-0 right-0">
+            <ThemeToggle />
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             Calculadora de Energia Solar
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Descubra quanto você pode economizar com energia solar fotovoltaica
           </p>
         </header>
@@ -48,17 +52,17 @@ export default function Home() {
             <ResultsDisplay results={results} />
             
             {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                <p className="text-red-800 font-medium">{error}</p>
+              <div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-lg p-4">
+                <p className="text-red-800 dark:text-red-200 font-medium">{error}</p>
               </div>
             )}
 
             {!results && !loading && !error && (
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                <h3 className="font-semibold text-yellow-800 mb-3 text-lg">
+              <div className="bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg p-6">
+                <h3 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-3 text-lg">
                   💡 Como funciona?
                 </h3>
-                <ul className="text-yellow-700 text-sm space-y-2">
+                <ul className="text-yellow-700 dark:text-yellow-300 text-sm space-y-2">
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
                     <span>Informe seu consumo mensal de energia em kWh</span>
