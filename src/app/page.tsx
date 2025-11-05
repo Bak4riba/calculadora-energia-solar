@@ -5,7 +5,6 @@ import { SimulationInput, SimulationResult } from './types';
 import { calcularSistema } from './lib/calculations';
 import CalculatorForm from './components/CalculatorForm';
 import ResultsDisplay from './components/ResultDisplay/ResultDisplay';
-import ThemeToggle from './components/ThemeToggle/ThemeToggle';
 
 export default function Home() {
   const [results, setResults] = useState<SimulationResult | null>(null);
@@ -31,11 +30,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 py-8 px-4 sm:py-12">
+    <div className="min-h-screen bg-linear-to-br from-green-900 to-blue-300 py-8 px-4 sm:py-12">
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-8 sm:mb-12 relative">
           <div className="absolute top-0 right-0">
-            <ThemeToggle />
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4">
             Calculadora de Energia Solar
