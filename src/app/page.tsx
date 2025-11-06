@@ -30,15 +30,15 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-green-900 to-blue-300 py-8 px-4 sm:py-12">
+    <div className="min-h-screen bg-linear-to-br from-blue-400 to-white  py-8 px-4 sm:py-12">
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-8 sm:mb-12 relative">
           <div className="absolute top-0 right-0">
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h1 className="bg-blue-800 p-6 rounded-2xl shadow-gray-900 text-3xl sm:text-4xl font-bold text-indigo-300 dark:text-white mb-4 shadow-lg p  dark:bg-gray-800">
             Calculadora de Energia Solar
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="bg-blue-800 text-lg sm:text-xl shadow-gray-950 text-indigo-300 dark:text-gray-300 p-10 max-w-max mx-auto px-4 py-2 rounded-lg shadow-lg dark:bg-gray-700">
             Descubra quanto você pode economizar com energia solar fotovoltaica
           </p>
         </header>

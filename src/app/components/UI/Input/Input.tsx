@@ -2,7 +2,7 @@
 
 interface InputProps {
   label: string;
-  type?: 'text' | 'number' | 'email' | 'password';
+  type: 'text' | 'number' | 'email' | 'password';
   name: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -47,7 +47,7 @@ export default function Input({
 
   return (
     <div>
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-2">
+      <label htmlFor={name} className="block text-sm font-medium text-gray-600 dark:text-gray-100 mb-2">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input

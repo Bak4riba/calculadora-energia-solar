@@ -120,7 +120,7 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+    <form onSubmit={handleSubmit} className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg .lg:shadow-lg border border-gray-200 dark:border-gray-300">
       <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
         Simule sua Economia com Energia Solar
       </h2>
@@ -128,7 +128,7 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
       <div className="space-y-4">
         <Input
           label="Consumo Mensal (kWh)"
-          type="number"
+          type={"number"}
           name="consumoMensalKwh"
           value={getDisplayValue('consumoMensalKwh')}
           onChange={handleInputChange}
