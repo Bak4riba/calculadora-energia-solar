@@ -56,7 +56,7 @@ export default function Home() {
             )}
 
             {!results && !loading && !error && (
-              <div className="bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg p-6">
+              <div className="bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg p-6 shadow-lg shadow-black">
                 <h3 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-3 text-lg">
                   💡 Como funciona?
                 </h3>

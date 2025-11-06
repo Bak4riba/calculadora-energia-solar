@@ -10,7 +10,7 @@ export default function ResultsDisplay({ results }: ResultsDisplayProps) {
   if (!results) return null;
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-lg shadow-black ">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Resultado da Simulação</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
