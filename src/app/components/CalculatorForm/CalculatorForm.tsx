@@ -104,7 +104,7 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
     if (value === "") {
       setFormData(prev => ({
         ...prev,
-        [name]: name === 'consumoMensalKwh' ? "300" : "350"
+        [name]: name === 'consumoMensalKwh' ? "0" : "0"
       }));
     }
   };
@@ -113,19 +113,19 @@ export default function CalculatorForm({ onCalculate, loading }: CalculatorFormP
     const value = formData[fieldName];
     
     if (value === "" && !inputFocus[fieldName as keyof typeof inputFocus]) {
-      return fieldName === 'consumoMensalKwh' ? "300" : "350";
+      return fieldName === 'consumoMensalKwh' ? "0" : "0";
     }
     
     return value;
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg .lg:shadow-lg border border-gray-200 dark:border-gray-300 shadow-lg shadow-black">
+    <form onSubmit={handleSubmit} className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg .lg:shadow-lg border border-none dark:border-gray-300 shadow-lg shadow-black">
       <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
         Simule sua Economia com Energia Solar
       </h2>
 
-      <div className="space-y-4 ">
+      <div className="space-y-4 text-gray-800 dark:text-white">
         <Input
           label="Consumo Mensal (kWh)"
           type={"number"}
