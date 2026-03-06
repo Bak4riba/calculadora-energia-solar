@@ -4,6 +4,8 @@ Aplicação web para simular o investimento necessário em um sistema de energia
 
 A ferramenta permite que o usuário tenha uma estimativa de economia ao longo do tempo considerando seu consumo de energia.
 
+**Projeto disponível em:** https://solar-energy-dc5frx5po-bakaus-projects.vercel.app/
+
 ## Funcionalidades
 
 - Simulação de investimento em energia solar
@@ -30,7 +32,3 @@ Com base nessas informações o sistema calcula:
 - HTML
 - CSS
 - JavaScript
-
-## Demonstração
-
-Projeto disponível em:
